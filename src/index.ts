@@ -14,20 +14,23 @@ app.get("/redirect", (c) => {
   return c.redirect("https://github.com/gvarner13");
 });
 
-app.post(
-  "/links",
-  zValidator(
-    "json",
-    z.object({
-      url: z.string().url(),
-    })
-  ),
-  (c) => {
-    const { url } = c.req.valid("json");
-    return c.jsonT({
-      message: `${url} has been verified`,
-    });
-  }
-);
+app
+  .get("/links", (c) => {
+    return c.text("This will return links :)");
+  })
+  .post(
+    zValidator(
+      "json",
+      z.object({
+        url: z.string().url(),
+      })
+    ),
+    (c) => {
+      const { url } = c.req.valid("json");
+      return c.jsonT({
+        message: `${url} has been verified`,
+      });
+    }
+  );
 
 export default app;
