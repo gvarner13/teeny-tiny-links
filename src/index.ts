@@ -16,7 +16,7 @@ app.get("/redirect", (c) => {
 
 app
   .get("/links", (c) => {
-    return c.text("This will return links :)");
+    return c.text("This will return links");
   })
   .post(
     zValidator(
