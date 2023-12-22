@@ -1,3 +1,6 @@
+import { Outlet, Link } from "react-router-dom";
+import { SignOutButton, SignedIn, SignedOut } from "@clerk/clerk-react";
+
 function App() {
   // const [count, setCount] = useState(0);
 
@@ -9,7 +12,7 @@ function App() {
             <div className="mx-auto w-full max-w-screen-xl px-2.5 lg:px-20">
               <div className="flex h-14 items-center justify-between">
                 <div className="flex items-center space-x-4">
-                  <a href="/">Teeny Tiny Links</a>
+                  <Link to="/">Teeny Tiny Links</Link>
                   <nav
                     aria-label="Main"
                     data-orientation="horizontal"
@@ -83,23 +86,32 @@ function App() {
                   </nav>
                 </div>
                 <div className="hidden lg:block">
-                  <a
-                    className="animate-fade-in rounded-full px-4 py-1.5 text-sm font-medium text-gray-500 transition-colors ease-out hover:text-black"
-                    href="https://app.dub.co/login"
-                  >
-                    Log in
-                  </a>
-                  <a
-                    className="animate-fade-in rounded-full border border-black bg-black px-4 py-1.5 text-sm text-white transition-all hover:bg-white hover:text-black"
-                    href="https://app.dub.co/register"
-                  >
-                    Sign Up
-                  </a>
+                  <SignedOut>
+                    <Link
+                      className="animate-fade-in rounded-full px-4 py-1.5 text-sm font-medium text-gray-500 transition-colors ease-out hover:text-black"
+                      to="/login"
+                    >
+                      Log in
+                    </Link>
+                    <Link
+                      className="animate-fade-in rounded-full border border-black bg-black px-4 py-1.5 text-sm text-white transition-all hover:bg-white hover:text-black"
+                      to="/sign-up"
+                    >
+                      Sign Up
+                    </Link>
+                  </SignedOut>
+                  <SignedIn>
+                    <SignOutButton
+                      className="animate-fade-in rounded-full px-4 py-1.5 text-sm font-medium text-gray-500 transition-colors ease-out hover:text-black"
+                      afterSignOutUrl="/"
+                    />
+                  </SignedIn>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <Outlet />
       </main>
     </>
   );
