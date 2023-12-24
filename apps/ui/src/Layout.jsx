@@ -1,14 +1,20 @@
 import { Outlet, Link } from "react-router-dom";
-import { SignOutButton, SignedIn, SignedOut } from "@clerk/clerk-react";
+import {
+  SignOutButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/clerk-react";
+import Footer from "./footer";
 
-function App() {
+function Layout() {
   // const [count, setCount] = useState(0);
 
   return (
     <>
       <main>
-        <div>
-          <div className="sticky inset-x-0 top-0 z-30 w-full transition-all">
+        <div className="min-h-screen bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[length:2rem_2rem]">
+          <div className="sticky inset-x-0 top-0 z-30 w-full transition-all bg-white/75">
             <div className="mx-auto w-full max-w-screen-xl px-2.5 lg:px-20">
               <div className="flex h-14 items-center justify-between">
                 <div className="flex items-center space-x-4">
@@ -101,20 +107,22 @@ function App() {
                     </Link>
                   </SignedOut>
                   <SignedIn>
-                    <SignOutButton
+                    {/* <SignOutButton
                       className="animate-fade-in rounded-full px-4 py-1.5 text-sm font-medium text-gray-500 transition-colors ease-out hover:text-black"
                       afterSignOutUrl="/"
-                    />
+                    /> */}
+                    <UserButton />
                   </SignedIn>
                 </div>
               </div>
             </div>
           </div>
+          <Outlet />
+          <Footer />
         </div>
-        <Outlet />
       </main>
     </>
   );
 }
 
-export default App;
+export default Layout;

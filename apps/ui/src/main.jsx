@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ClerkProvider } from "@clerk/clerk-react";
-import App from "./App.jsx";
+import Layout from "./Layout.jsx";
+import Index from "./index.jsx";
 import SignUpPage from "./SignUp.jsx";
 import SignInPage from "./log-in.jsx";
 import "./index.css";
@@ -16,8 +17,13 @@ if (!PUBLISHABLE_KEY) {
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Index />,
+      },
+    ],
   },
   { path: "/sign-up", element: <SignUpPage /> },
   { path: "/login", element: <SignInPage /> },
