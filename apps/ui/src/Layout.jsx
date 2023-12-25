@@ -6,6 +6,7 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 import Footer from "./footer";
+import Example from "./components/popover";
 
 function Layout() {
   // const [count, setCount] = useState(0);
@@ -13,12 +14,12 @@ function Layout() {
   return (
     <>
       <main>
-        <div className="min-h-screen bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[length:2rem_2rem]">
+        <div className="min-h-screen flex flex-col justify-between bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[length:2rem_2rem]">
           <div className="sticky inset-x-0 top-0 z-30 w-full transition-all bg-white/75">
             <div className="mx-auto w-full max-w-screen-xl px-2.5 lg:px-20">
               <div className="flex h-14 items-center justify-between">
                 <div className="flex items-center space-x-4">
-                  <Link to="/">Teeny Tiny Links</Link>
+                  <Link to="/">G Links</Link>
                   <nav
                     aria-label="Main"
                     data-orientation="horizontal"
@@ -32,7 +33,7 @@ function Layout() {
                         dir="ltr"
                       >
                         <li>
-                          <button
+                          {/* <button
                             id="radix-:r3:-trigger-radix-:r4:"
                             data-state="closed"
                             aria-expanded="false"
@@ -57,32 +58,12 @@ function Layout() {
                             >
                               <path d="m6 9 6 6 6-6"></path>
                             </svg>
-                          </button>
+                          </button> */}
+                          <Example />
                         </li>
                         <a
-                          id="nav-customers"
-                          className="rounded-md px-3 py-2 text-sm font-medium text-gray-500 transition-colors ease-out hover:text-black"
-                          href="/customers"
-                        >
-                          Customers
-                        </a>
-                        <a
-                          id="nav-changelog"
-                          className="rounded-md px-3 py-2 text-sm font-medium text-gray-500 transition-colors ease-out hover:text-black"
-                          href="/changelog"
-                        >
-                          Changelog
-                        </a>
-                        <a
-                          id="nav-help"
-                          className="rounded-md px-3 py-2 text-sm font-medium text-gray-500 transition-colors ease-out hover:text-black"
-                          href="/help"
-                        >
-                          Help
-                        </a>
-                        <a
                           id="nav-pricing"
-                          className="rounded-md px-3 py-2 text-sm font-medium text-gray-500 transition-colors ease-out hover:text-black"
+                          className="rounded-md px-3 py-2 text-sm font-medium transition-colors ease-out"
                           href="/pricing"
                         >
                           Pricing
@@ -94,7 +75,7 @@ function Layout() {
                 <div className="hidden lg:block">
                   <SignedOut>
                     <Link
-                      className="animate-fade-in rounded-full px-4 py-1.5 text-sm font-medium text-gray-500 transition-colors ease-out hover:text-black"
+                      className="animate-fade-in rounded-full px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors ease-out hover:text-black"
                       to="/login"
                     >
                       Log in

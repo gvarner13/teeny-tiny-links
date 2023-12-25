@@ -10,6 +10,7 @@ export default function Index() {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
+            className="underline decoration-black"
           >
             Links
           </span>{" "}

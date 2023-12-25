@@ -4,7 +4,7 @@ export default function Index() {
       <div className="lg:px-10">
         <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
           <p className="text-sm leading-5 text-gray-500">
-            © {new Date().getFullYear()} Teeny Tiny Links
+            © {new Date().getFullYear()} G Links
           </p>
         </div>
       </div>
