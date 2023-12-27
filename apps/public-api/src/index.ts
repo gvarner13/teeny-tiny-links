@@ -10,8 +10,12 @@ app.notFound((c) => {
 
 app.get("/", (c) => c.text("Welcome to my worker!"));
 
-app.get("/redirect", (c) => {
+app.get("/github", (c) => {
   return c.redirect("https://github.com/gvarner13");
+});
+
+app.get("/mylinks", (c) => {
+  return c.redirect("https://www.garyvarner.me/notlinktree");
 });
 
 app
