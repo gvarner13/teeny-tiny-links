@@ -6,6 +6,7 @@ import Layout from "./Layout.jsx";
 import Index from "./index.jsx";
 import SignUpPage from "./SignUp.jsx";
 import SignInPage from "./log-in.jsx";
+import ErrorPage from "./error-page";
 import "./index.css";
 
 // Import your publishable key
@@ -18,6 +19,7 @@ if (!PUBLISHABLE_KEY) {
 const router = createBrowserRouter([
   {
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
