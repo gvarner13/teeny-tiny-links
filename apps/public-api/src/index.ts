@@ -8,16 +8,6 @@ app.notFound((c) => {
   return c.text("Your looking in the wrong spot", 404);
 });
 
-app.get("/", (c) => c.text("Welcome to my worker!"));
-
-app.get("/github", (c) => {
-  return c.redirect("https://github.com/gvarner13");
-});
-
-app.get("/mylinks", (c) => {
-  return c.redirect("https://www.garyvarner.me/notlinktree");
-});
-
 app
   .get("/links", (c) => {
     return c.text("This will return links");
@@ -36,5 +26,21 @@ app
       });
     }
   );
+
+app.get("/:id", (c) => {
+  const id = c.req.param("id");
+  let url = "";
+  switch (id) {
+    case "github":
+      url = "https://github.com/gvarner13";
+      break;
+    case "mylinks":
+      url = "https://www.garyvarner.me/notlinktree";
+      break;
+    default:
+      return c.text("Your looking in the wrong spot", 404);
+  }
+  return c.redirect(url);
+});
 
 export default app;
